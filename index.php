@@ -12,18 +12,14 @@
     </head>
 <body>
     <?php  include_once __DIR__ . '/server/data.php'; ?>
-    <main>
-        <?php
-            
-            foreach($posts as $post){ ?>
-                <img src="<?= $post['poster']; ?>" alt="<?= $post['title']; ?>"></img>
-                <h1><?= $post['title']; ?></h1>
-                <p><?php echo $post['author']; ?></p>
-                <p><?= $post['year']; ?></p>
-            <?php } ?>
-            
-        
-    </main>
+        <main id="app">
+            <div class="post" v-for="post in posts">
+                <img :src="post.poster" :alt="post.title"></img>
+                <h1>{{ post.title }}</h1>
+                <h3>{{ post.author }}</h3>
+                <p>{{ post.year }}</p>
+            </div>
+        </main>
 
     
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
@@ -31,4 +27,7 @@
     <script src="js/script.js"></script>
 </body>
 </html>
+
+
+
 
